@@ -77,6 +77,7 @@ class LowfreqSubtractLayer(nn.Module):
 
         return x_real
 
+############ frecPINN #################################
 
 class frecPINN(nn.Module):
     def __init__(self, layers):
@@ -114,10 +115,10 @@ class frecPINN(nn.Module):
 
         return u
 
+###########################################################
 
 
-
-# Define the neural network model
+############### LAAF-PINN ##########################
 class DNN(nn.Module):
     def __init__(self, layers):
         super(DNN, self).__init__()
@@ -137,7 +138,7 @@ class DNN(nn.Module):
             A = torch.tanh(10 * a[i] * (self.layers[i](A)))
         Y = self.layers[-1](A)
         return Y
-
+####################################################
 
 
 N = 300
